@@ -52,6 +52,25 @@
             </objects>
             <point key="canvasLocation" x="263.768115942029" y="83.705357142857139"/>
         </scene>
+        <!--Edit Member View Controller-->
+        <scene sceneID="XwD-7Y-1ci">
+            <objects>
+                <viewController storyboardIdentifier="EditMemberVC" id="qfe-fv-FJB" customClass="EditMemberViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q0K-MH-U8j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="FQW-J1-cEn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HRW-0C-QQD">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="d46-ZE-0TK"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="n3z-0x-gbg"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IYu-yT-Xzx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1931.8840579710147" y="803.57142857142856"/>
+        </scene>
         <!--Community Top View Controller-->
         <scene sceneID="rLX-Tb-6oW">
             <objects>
@@ -90,7 +109,13 @@
                             <constraint firstItem="nzA-xZ-6wA" firstAttribute="top" secondItem="Ziq-02-FH4" secondAttribute="top" id="q42-Ug-8c8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="kkh-Cv-ECn"/>
+                    <navigationItem key="navigationItem" id="kkh-Cv-ECn">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="hdR-32-azN">
+                            <connections>
+                                <action selector="tappedAddButton" destination="s1p-KQ-AJp" id="tmg-qR-2xX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YfA-b6-6Gq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,6 +156,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVP-jV-8P9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-439" y="804"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9Ni-qH-oQe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DjD-AN-6wa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="R1y-yh-ojS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qfe-fv-FJB" kind="relationship" relationship="rootViewController" id="fxG-6l-aHa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hRd-jq-qeb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021.7391304347827" y="803.57142857142856"/>
         </scene>
     </scenes>
     <resources>

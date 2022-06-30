@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75A2F905286D5AD100ABA460 /* EditMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2F904286D5AD100ABA460 /* EditMemberViewController.swift */; };
 		75CD310C286BFD76005C0283 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD310B286BFD76005C0283 /* AppDelegate.swift */; };
 		75CD310E286BFD76005C0283 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD310D286BFD76005C0283 /* SceneDelegate.swift */; };
 		75CD3110286BFD76005C0283 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD310F286BFD76005C0283 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		75A2F904286D5AD100ABA460 /* EditMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemberViewController.swift; sourceTree = "<group>"; };
 		75CD3108286BFD76005C0283 /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75CD310B286BFD76005C0283 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75CD310D286BFD76005C0283 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				75CD313B286BFE0F005C0283 /* WelcomeViewController.swift */,
 				75CD313D286BFE37005C0283 /* CommunityTopViewController.swift */,
 				75CD3140286C0423005C0283 /* CommunityMemberViewController.swift */,
+				75A2F904286D5AD100ABA460 /* EditMemberViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75A2F905286D5AD100ABA460 /* EditMemberViewController.swift in Sources */,
 				75CD3110286BFD76005C0283 /* ViewController.swift in Sources */,
 				75CD313E286BFE37005C0283 /* CommunityTopViewController.swift in Sources */,
 				75CD3141286C0423005C0283 /* CommunityMemberViewController.swift in Sources */,
