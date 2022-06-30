@@ -17,8 +17,8 @@ class CommunityTopViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        let viewWidth = self.view.frame.width
-        let viewHeight = self.view.frame.height
+//        let viewWidth = self.view.frame.width
+//        let viewHeight = self.view.frame.height
         
         title = "Sample Community"
         
@@ -26,15 +26,15 @@ class CommunityTopViewController: UIViewController {
         memberCollectionView.dataSource = self
         memberCollectionView.register(UINib(nibName: "MemberCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MemberCell")
         
-        let layout = UICollectionViewFlowLayout()
-        let collectionFrame = CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight)
-        layout.minimumInteritemSpacing = 4 // Cell間の最小サイズ
-        layout.minimumLineSpacing = 4 // 行間の最小サイズ
-        layout.sectionInset = UIEdgeInsets.zero // Cellのマージン.
-        layout.headerReferenceSize = CGSize(width:0,height:0) // セクションのヘッダーサイズ
-        layout.itemSize = CGSize(width: (viewWidth - layout.minimumInteritemSpacing - 8) / 3, height: (viewWidth - layout.minimumLineSpacing - 8) / 3) // Cellサイズを適当に決める
-        memberCollectionView.frame = collectionFrame
-        memberCollectionView.collectionViewLayout = layout
+//        let layout = UICollectionViewFlowLayout()
+//        let collectionFrame = CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight)
+//        layout.minimumInteritemSpacing = 4 // Cell間の最小サイズ
+//        layout.minimumLineSpacing = 4 // 行間の最小サイズ
+//        layout.sectionInset = UIEdgeInsets.zero // Cellのマージン.
+//        layout.headerReferenceSize = CGSize(width:0,height:0) // セクションのヘッダーサイズ
+//        layout.itemSize = CGSize(width: (viewWidth - layout.minimumInteritemSpacing - 8) / 3, height: (viewWidth - layout.minimumLineSpacing - 8) / 3) // Cellサイズを適当に決める
+//        memberCollectionView.frame = collectionFrame
+//        memberCollectionView.collectionViewLayout = layout
         
         // TODO: delete mock
         let memberIntroductionImage = MemberIntroductionImage(imageUrl: "https://guide.line.me/ja/dogday_01.jpg", title: "犬", discription: "実家では5匹犬を飼ってました")
@@ -57,7 +57,7 @@ class CommunityTopViewController: UIViewController {
     }
 }
 
-extension CommunityTopViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension CommunityTopViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return members.count
     }
@@ -73,5 +73,26 @@ extension CommunityTopViewController: UICollectionViewDelegate, UICollectionView
         let nextVC = storyboard?.instantiateViewController(withIdentifier: "CommunityMemberVC") as! CommunityMemberViewController
         nextVC.member = members[indexPath.row]
         navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    // アイテムの大きさを設定（UICollectionViewDelegateFlowLayout が必要）
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // 横方向のスペース調整
+        let cellSize:CGFloat = self.view.bounds.width/3 - 17
+        print(cellSize)
+        print(self.view.bounds.width)
+        // 正方形で返すためにwidth,heightを同じにする
+        return CGSize(width: cellSize, height: cellSize)
+    }
+    
+    // アイテム表示領域全体の上下左右の余白を設定（UICollectionViewDelegateFlowLayout が必要）
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+    }
+    
+    // アイテムの上下の余白の最小値を設定（UICollectionViewDelegateFlowLayout が必要）
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+        
     }
 }
