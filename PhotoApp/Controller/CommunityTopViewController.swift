@@ -79,8 +79,6 @@ extension CommunityTopViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // 横方向のスペース調整
         let cellSize:CGFloat = self.view.bounds.width/3 - 17
-        print(cellSize)
-        print(self.view.bounds.width)
         // 正方形で返すためにwidth,heightを同じにする
         return CGSize(width: cellSize, height: cellSize)
     }
