@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		750E82F8286D9C4400B5885F /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750E82F7286D9C4400B5885F /* UIImageView+.swift */; };
-		750E82FD286D9D2100B5885F /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750E82FB286D9D2100B5885F /* MemberCollectionViewCell.swift */; };
-		750E82FE286D9D2100B5885F /* MemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750E82FC286D9D2100B5885F /* MemberCollectionViewCell.xib */; };
+		750E82FD286D9D2100B5885F /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750E82FB286D9D2100B5885F /* ImageCollectionViewCell.swift */; };
+		750E82FE286D9D2100B5885F /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750E82FC286D9D2100B5885F /* ImageCollectionViewCell.xib */; };
 		750E8300286DB3A800B5885F /* CommunityMemberContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750E82FF286DB3A800B5885F /* CommunityMemberContainerViewController.swift */; };
 		75A2F905286D5AD100ABA460 /* EditMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2F904286D5AD100ABA460 /* EditMemberViewController.swift */; };
 		75A2F909286D5FC400ABA460 /* EditMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2F907286D5FC400ABA460 /* EditMemberTableViewCell.swift */; };
@@ -48,8 +48,8 @@
 
 /* Begin PBXFileReference section */
 		750E82F7286D9C4400B5885F /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
-		750E82FB286D9D2100B5885F /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
-		750E82FC286D9D2100B5885F /* MemberCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCollectionViewCell.xib; sourceTree = "<group>"; };
+		750E82FB286D9D2100B5885F /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		750E82FC286D9D2100B5885F /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		750E82FF286DB3A800B5885F /* CommunityMemberContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityMemberContainerViewController.swift; sourceTree = "<group>"; };
 		75A2F904286D5AD100ABA460 /* EditMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemberViewController.swift; sourceTree = "<group>"; };
 		75A2F907286D5FC400ABA460 /* EditMemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemberTableViewCell.swift; sourceTree = "<group>"; };
@@ -111,8 +111,8 @@
 			children = (
 				75A2F907286D5FC400ABA460 /* EditMemberTableViewCell.swift */,
 				75A2F908286D5FC400ABA460 /* EditMemberTableViewCell.xib */,
-				750E82FB286D9D2100B5885F /* MemberCollectionViewCell.swift */,
-				750E82FC286D9D2100B5885F /* MemberCollectionViewCell.xib */,
+				750E82FB286D9D2100B5885F /* ImageCollectionViewCell.swift */,
+				750E82FC286D9D2100B5885F /* ImageCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -296,7 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				750E82FE286D9D2100B5885F /* MemberCollectionViewCell.xib in Resources */,
+				750E82FE286D9D2100B5885F /* ImageCollectionViewCell.xib in Resources */,
 				75CD3118286BFD77005C0283 /* LaunchScreen.storyboard in Resources */,
 				75A2F90A286D5FC400ABA460 /* EditMemberTableViewCell.xib in Resources */,
 				75CD3115286BFD77005C0283 /* Assets.xcassets in Resources */,
@@ -329,7 +329,7 @@
 				75A2F909286D5FC400ABA460 /* EditMemberTableViewCell.swift in Sources */,
 				75CD3110286BFD76005C0283 /* ViewController.swift in Sources */,
 				75CD313E286BFE37005C0283 /* CommunityTopViewController.swift in Sources */,
-				750E82FD286D9D2100B5885F /* MemberCollectionViewCell.swift in Sources */,
+				750E82FD286D9D2100B5885F /* ImageCollectionViewCell.swift in Sources */,
 				750E82F8286D9C4400B5885F /* UIImageView+.swift in Sources */,
 				750E8300286DB3A800B5885F /* CommunityMemberContainerViewController.swift in Sources */,
 				75A2F90D286D62E500ABA460 /* Member.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MemberCollectionViewCell: UICollectionViewCell {
+class ImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var imageView: UIImageView!
 
@@ -18,7 +18,11 @@ class MemberCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
     }
     
-    func setCell(member: Member) {
+    func setCellFromMember(member: Member) {
         imageView.downloaded(from: member.mainImageUrl)
+    }
+    
+    func setCellFromMemberImage(image: MemberIntroductionImage) {
+        imageView.downloaded(from: image.imageUrl, contentMode: .scaleAspectFill)
     }
 }

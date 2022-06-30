@@ -19,6 +19,9 @@ class CommunityMemberContainerViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        imageCollectionView.delegate = self
+        imageCollectionView.dataSource = self
+        imageCollectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,16 +35,35 @@ class CommunityMemberContainerViewController: UIViewController {
         nameLabel.text = member.name
         mainImageVIew.downloaded(from: member.mainImageUrl)
     }
+}
+
+extension CommunityMemberContainerViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return member.images.count
+    }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = imageCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCollectionViewCell
+        cell.setCellFromMemberImage(image: member.images[indexPath.row])
+        
+        return cell
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    // アイテムの大きさを設定（UICollectionViewDelegateFlowLayout が必要）
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // 横方向のスペース調整
+        let cellSize:CGFloat = self.view.bounds.width/3 - 17
+        // 正方形で返すためにwidth,heightを同じにする
+        return CGSize(width: cellSize, height: cellSize)
+    }
     
+    // アイテム表示領域全体の上下左右の余白を設定（UICollectionViewDelegateFlowLayout が必要）
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+    }
+    
+    // アイテムの上下の余白の最小値を設定（UICollectionViewDelegateFlowLayout が必要）
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
 }

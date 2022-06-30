@@ -17,30 +17,17 @@ class CommunityTopViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-//        let viewWidth = self.view.frame.width
-//        let viewHeight = self.view.frame.height
-        
         title = "Sample Community"
         
         memberCollectionView.delegate = self
         memberCollectionView.dataSource = self
-        memberCollectionView.register(UINib(nibName: "MemberCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MemberCell")
-        
-//        let layout = UICollectionViewFlowLayout()
-//        let collectionFrame = CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight)
-//        layout.minimumInteritemSpacing = 4 // Cell間の最小サイズ
-//        layout.minimumLineSpacing = 4 // 行間の最小サイズ
-//        layout.sectionInset = UIEdgeInsets.zero // Cellのマージン.
-//        layout.headerReferenceSize = CGSize(width:0,height:0) // セクションのヘッダーサイズ
-//        layout.itemSize = CGSize(width: (viewWidth - layout.minimumInteritemSpacing - 8) / 3, height: (viewWidth - layout.minimumLineSpacing - 8) / 3) // Cellサイズを適当に決める
-//        memberCollectionView.frame = collectionFrame
-//        memberCollectionView.collectionViewLayout = layout
+        memberCollectionView.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
         
         // TODO: delete mock
         let memberIntroductionImage = MemberIntroductionImage(imageUrl: "https://guide.line.me/ja/dogday_01.jpg", title: "犬", discription: "実家では5匹犬を飼ってました")
         let memberSNS = MemberSNS(twitter: "", facebook: "", web: "")
         members.append(contentsOf: [
-            Member(name: "田中太郎", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage], sns: memberSNS, id: ""),
+            Member(name: "田中太郎", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage, memberIntroductionImage, memberIntroductionImage], sns: memberSNS, id: ""),
             Member(name: "山田花子", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage], sns: memberSNS, id: ""),
             Member(name: "浅岡千代彦", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage], sns: memberSNS, id: ""),
             Member(name: "風岡暢", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage], sns: memberSNS, id: ""),
@@ -63,8 +50,8 @@ extension CommunityTopViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = memberCollectionView.dequeueReusableCell(withReuseIdentifier: "MemberCell", for: indexPath) as! MemberCollectionViewCell
-        cell.setCell(member: members[indexPath.row])
+        let cell = memberCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCollectionViewCell
+        cell.setCellFromMember(member: members[indexPath.row])
         
         return cell
     }
@@ -91,6 +78,5 @@ extension CommunityTopViewController: UICollectionViewDelegate, UICollectionView
     // アイテムの上下の余白の最小値を設定（UICollectionViewDelegateFlowLayout が必要）
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
-        
     }
 }
