@@ -55,7 +55,7 @@
         <!--Community Top View Controller-->
         <scene sceneID="rLX-Tb-6oW">
             <objects>
-                <viewController id="s1p-KQ-AJp" customClass="CommunityTopViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommunityTopVC" id="s1p-KQ-AJp" customClass="CommunityTopViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2rP-51-TqC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
