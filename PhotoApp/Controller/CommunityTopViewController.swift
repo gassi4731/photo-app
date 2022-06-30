@@ -37,15 +37,15 @@ class CommunityTopViewController: UIViewController {
         memberCollectionView.collectionViewLayout = layout
         
         // TODO: delete mock
-        let memberIntroductionImage = MemberIntroductionImage(imageUrl: "", title: "", discription: "")
+        let memberIntroductionImage = MemberIntroductionImage(imageUrl: "https://guide.line.me/ja/dogday_01.jpg", title: "犬", discription: "実家では5匹犬を飼ってました")
         let memberSNS = MemberSNS(twitter: "", facebook: "", web: "")
         members.append(contentsOf: [
-            Member(name: "", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage], sns: memberSNS),
-            Member(name: "", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage], sns: memberSNS),
-            Member(name: "", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage], sns: memberSNS),
-            Member(name: "", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage], sns: memberSNS),
-            Member(name: "", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage], sns: memberSNS),
-            Member(name: "", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage], sns: memberSNS),
+            Member(name: "田中太郎", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage], sns: memberSNS, id: ""),
+            Member(name: "山田花子", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage], sns: memberSNS, id: ""),
+            Member(name: "浅岡千代彦", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage], sns: memberSNS, id: ""),
+            Member(name: "風岡暢", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage], sns: memberSNS, id: ""),
+            Member(name: "山中裕一", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage], sns: memberSNS, id: ""),
+            Member(name: "杉山眞太郎", mainImageUrl: "https://thebluegrasssituation.com/wp-content/uploads/2020/08/Square-Headshot-970x970-1.jpg", images: [memberIntroductionImage], sns: memberSNS, id: ""),
         ])
     }
     
@@ -69,20 +69,9 @@ extension CommunityTopViewController: UICollectionViewDelegate, UICollectionView
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        // 横方向のスペース調整
-        //        let horizontalSpace:CGFloat = 10
-        //
-        //        //セルのサイズを指定。画面上にセルを3つ表示させたいのであれば、デバイスの横幅を3分割した横幅　- セル間のスペース*2（セル間のスペースが二つあるため）
-        //        let cellSize:CGFloat = self.view.bounds.width/3 - horizontalSpace*2
-        //
-        //        // 正方形で返すためにwidth,heightを同じにする
-        //        return CGSize(width: cellSize, height: cellSize)
-        return CGSize(width: 60.0, height: 60.0)
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("tapped")
+        let nextVC = storyboard?.instantiateViewController(withIdentifier: "CommunityMemberVC") as! CommunityMemberViewController
+        nextVC.member = members[indexPath.row]
+        navigationController?.pushViewController(nextVC, animated: true)
     }
 }

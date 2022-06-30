@@ -12,6 +12,7 @@ struct Member {
     let mainImageUrl: String
     let images: [MemberIntroductionImage]
     let sns: MemberSNS
+    let id: String
 }
 
 struct MemberIntroductionImage {

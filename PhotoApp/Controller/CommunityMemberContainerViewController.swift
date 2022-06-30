@@ -1,15 +1,19 @@
 //
-//  CommunityMemberViewController.swift
+//  CommunityMemberContainerViewController.swift
 //  PhotoApp
 //
-//  Created by Yo Higashida on 2022/06/29.
+//  Created by Yo Higashida on 2022/06/30.
 //
 
 import UIKit
 
-class CommunityMemberViewController: UIViewController {
+class CommunityMemberContainerViewController: UIViewController {
     
     var member: Member!
+    
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var mainImageVIew: UIImageView!
+    @IBOutlet var imageCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,11 +22,17 @@ class CommunityMemberViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        title = member.name
+        super.viewWillAppear(animated)
         
-        let container = self.children[0] as! CommunityMemberContainerViewController
-        container.member = member
+        setMemberInfo()
     }
+    
+    func setMemberInfo() {
+        title = member.name
+        nameLabel.text = member.name
+        mainImageVIew.downloaded(from: member.mainImageUrl)
+    }
+    
     
     /*
      // MARK: - Navigation

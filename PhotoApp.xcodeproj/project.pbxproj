@@ -10,6 +10,7 @@
 		750E82F8286D9C4400B5885F /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750E82F7286D9C4400B5885F /* UIImageView+.swift */; };
 		750E82FD286D9D2100B5885F /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750E82FB286D9D2100B5885F /* MemberCollectionViewCell.swift */; };
 		750E82FE286D9D2100B5885F /* MemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750E82FC286D9D2100B5885F /* MemberCollectionViewCell.xib */; };
+		750E8300286DB3A800B5885F /* CommunityMemberContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750E82FF286DB3A800B5885F /* CommunityMemberContainerViewController.swift */; };
 		75A2F905286D5AD100ABA460 /* EditMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2F904286D5AD100ABA460 /* EditMemberViewController.swift */; };
 		75A2F909286D5FC400ABA460 /* EditMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2F907286D5FC400ABA460 /* EditMemberTableViewCell.swift */; };
 		75A2F90A286D5FC400ABA460 /* EditMemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A2F908286D5FC400ABA460 /* EditMemberTableViewCell.xib */; };
@@ -49,6 +50,7 @@
 		750E82F7286D9C4400B5885F /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		750E82FB286D9D2100B5885F /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		750E82FC286D9D2100B5885F /* MemberCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCollectionViewCell.xib; sourceTree = "<group>"; };
+		750E82FF286DB3A800B5885F /* CommunityMemberContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityMemberContainerViewController.swift; sourceTree = "<group>"; };
 		75A2F904286D5AD100ABA460 /* EditMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemberViewController.swift; sourceTree = "<group>"; };
 		75A2F907286D5FC400ABA460 /* EditMemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemberTableViewCell.swift; sourceTree = "<group>"; };
 		75A2F908286D5FC400ABA460 /* EditMemberTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditMemberTableViewCell.xib; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				75CD313D286BFE37005C0283 /* CommunityTopViewController.swift */,
 				75CD3140286C0423005C0283 /* CommunityMemberViewController.swift */,
 				75A2F904286D5AD100ABA460 /* EditMemberViewController.swift */,
+				750E82FF286DB3A800B5885F /* CommunityMemberContainerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				75CD313E286BFE37005C0283 /* CommunityTopViewController.swift in Sources */,
 				750E82FD286D9D2100B5885F /* MemberCollectionViewCell.swift in Sources */,
 				750E82F8286D9C4400B5885F /* UIImageView+.swift in Sources */,
+				750E8300286DB3A800B5885F /* CommunityMemberContainerViewController.swift in Sources */,
 				75A2F90D286D62E500ABA460 /* Member.swift in Sources */,
 				75CD3141286C0423005C0283 /* CommunityMemberViewController.swift in Sources */,
 				75CD313C286BFE0F005C0283 /* WelcomeViewController.swift in Sources */,
