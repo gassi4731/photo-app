@@ -24,6 +24,14 @@ class CommunityMemberViewController: UIViewController {
         container.member = member
     }
     
+    @IBAction func tappedEditButton() {
+        let nextVC = storyboard?.instantiateViewController(withIdentifier: "EditMemberVC") as! EditMemberViewController
+        nextVC.isCreate = false
+        nextVC.member = member
+        let navigationController = UINavigationController(rootViewController: nextVC)
+        present(navigationController, animated: true)
+    }
+    
     /*
      // MARK: - Navigation
      

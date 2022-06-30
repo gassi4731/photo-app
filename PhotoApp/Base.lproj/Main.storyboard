@@ -94,7 +94,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4Qx-rC-YEM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="UxW-fY-AJv"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="UxW-fY-AJv">
+                            <connections>
+                                <action selector="tappedEditButton" destination="HU0-34-Vmd" id="w4j-PZ-y3C"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FxI-Jj-Gx7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

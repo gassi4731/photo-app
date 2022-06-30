@@ -16,6 +16,7 @@ struct EditMemberContent {
 class EditMemberViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var isCreate: Bool!
+    var member: Member = Member(name: "", mainImageUrl: "", images: nil, sns: MemberSNS(twitter: nil, facebook: nil, web: nil), id: "")
     var editMemberContents: [EditMemberContent] = []
     var imagePicker: UIImagePickerController!
     
@@ -44,11 +45,15 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
         mainImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tappedMainImage(_:))))
         
         editMemberContents.append(contentsOf: [
-            EditMemberContent(title: "名前", placeholder: "田中 太郎", value: ""),
-            EditMemberContent(title: "Twitter", placeholder: "https://twitter.com/username", value: ""),
+            EditMemberContent(title: "名前", placeholder: "田中 太郎", value: member.name),
+            EditMemberContent(title: "Twitter", placeholder: "https://twitter.com/username", value: member.sns.twitter),
             EditMemberContent(title: "Instagram", placeholder: "https://www.facebook.com/username/", value: ""),
             EditMemberContent(title: "Web", placeholder: "https://sample.com", value: "")
         ])
+        
+        if member.mainImageUrl != "" {
+            mainImageView.downloaded(from: member.mainImageUrl, contentMode: .scaleAspectFill)
+        }
     }
     
     @IBAction func tappedCancelButton() {
@@ -56,11 +61,30 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func tappedSaveButton() {
+        let firstCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! EditMemberTableViewCell
+        if mainImageView.image == UIImage(systemName: "camera.circle") {
+            showAlert(title: "人の画像を設定してください")
+        } else if firstCell.textField.text == "" {
+            showAlert(title: "名前を設定してください")
+        }
         // TODO: saveの動作を追加
     }
     
     @objc func tappedMainImage(_ sender: UITapGestureRecognizer) {
         present(imagePicker, animated: true)
+    }
+    
+    func showAlert(title: String) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        // OKボタン
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+            // ボタンが押された時の処理を書く（クロージャ実装）
+            (action: UIAlertAction!) -> Void in
+            print("OK")
+        })
+        alert.addAction(defaultAction)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 

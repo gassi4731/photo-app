@@ -10,7 +10,7 @@ import Foundation
 struct Member {
     let name: String
     let mainImageUrl: String
-    let images: [MemberIntroductionImage]
+    let images: [MemberIntroductionImage]?
     let sns: MemberSNS
     let id: String
 }
@@ -25,4 +25,10 @@ struct MemberSNS {
     let twitter: String
     let facebook: String
     let web: String
+    
+    init(twitter: String?, facebook: String?, web: String?) {
+        self.twitter = twitter ?? ""
+        self.facebook = facebook ?? ""
+        self.web = web ?? ""
+    }
 }

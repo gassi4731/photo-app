@@ -39,12 +39,16 @@ class CommunityMemberContainerViewController: UIViewController {
 
 extension CommunityMemberContainerViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return member.images.count
+        if member.images == nil {
+            return 0
+        } else {
+            return member.images!.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = imageCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCollectionViewCell
-        cell.setCellFromMemberImage(image: member.images[indexPath.row])
+        cell.setCellFromMemberImage(image: member.images![indexPath.row])
         
         return cell
     }
