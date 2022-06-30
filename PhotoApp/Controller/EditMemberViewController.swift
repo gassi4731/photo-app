@@ -17,12 +17,14 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var isCreate: Bool!
     var editMemberContents: [EditMemberContent] = []
+    var imagePicker: UIImagePickerController!
     
     @IBOutlet var tableView: UITableView!
-
+    @IBOutlet var mainImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         if isCreate {
             title = "メンバーを追加"
@@ -34,10 +36,19 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.dataSource = self
         tableView.register(UINib(nibName: "EditMemberTableViewCell", bundle: nil), forCellReuseIdentifier: "EditMemberCell")
         
-        editMemberContents.append(EditMemberContent(title: "名前", placeholder: "田中 太郎", value: ""))
-        editMemberContents.append(EditMemberContent(title: "Twitter", placeholder: "https://twitter.com/username", value: ""))
-        editMemberContents.append(EditMemberContent(title: "Instagram", placeholder: "https://www.facebook.com/username/", value: ""))
-        editMemberContents.append(EditMemberContent(title: "Web", placeholder: "https://sample.com", value: ""))
+        imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        
+        mainImageView.isUserInteractionEnabled = true
+        mainImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tappedMainImage(_:))))
+        
+        editMemberContents.append(contentsOf: [
+            EditMemberContent(title: "名前", placeholder: "田中 太郎", value: ""),
+            EditMemberContent(title: "Twitter", placeholder: "https://twitter.com/username", value: ""),
+            EditMemberContent(title: "Instagram", placeholder: "https://www.facebook.com/username/", value: ""),
+            EditMemberContent(title: "Web", placeholder: "https://sample.com", value: "")
+        ])
     }
     
     @IBAction func tappedCancelButton() {
@@ -46,6 +57,10 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func tappedSaveButton() {
         // TODO: saveの動作を追加
+    }
+    
+    @objc func tappedMainImage(_ sender: UITapGestureRecognizer) {
+        present(imagePicker, animated: true)
     }
 }
 
@@ -58,5 +73,22 @@ extension EditMemberViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return editMemberContents.count
+    }
+}
+
+extension EditMemberViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // 選択されたimageを取得
+        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as! UIImage? else {return}
+        
+        // imageをimageViewに設定
+        mainImageView.image = selectedImage
+        
+        // imagePickerの削除
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }

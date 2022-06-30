@@ -60,13 +60,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ltW-Kh-IhG">
-                                <rect key="frame" x="132" y="88" width="150" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="i0g-fZ-LKH"/>
-                                    <constraint firstAttribute="width" constant="150" id="v7S-AH-llU"/>
-                                </constraints>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0PR-PT-vJY">
                                 <rect key="frame" x="0.0" y="258" width="414" height="604"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -81,16 +74,23 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xwc-3e-8Oh">
+                                <rect key="frame" x="132" y="88.5" width="150" height="149"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Feh-pH-tTh"/>
+                                    <constraint firstAttribute="width" constant="150" id="pym-2l-c0b"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FQW-J1-cEn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FQW-J1-cEn" firstAttribute="trailing" secondItem="0PR-PT-vJY" secondAttribute="trailing" id="24a-zu-yTI"/>
-                            <constraint firstItem="0PR-PT-vJY" firstAttribute="top" secondItem="ltW-Kh-IhG" secondAttribute="bottom" constant="20" id="HK9-dj-B4u"/>
-                            <constraint firstItem="ltW-Kh-IhG" firstAttribute="centerX" secondItem="q0K-MH-U8j" secondAttribute="centerX" id="IIj-YI-nlX"/>
+                            <constraint firstItem="xwc-3e-8Oh" firstAttribute="top" secondItem="FQW-J1-cEn" secondAttribute="top" id="2iM-FO-qyr"/>
                             <constraint firstItem="0PR-PT-vJY" firstAttribute="leading" secondItem="FQW-J1-cEn" secondAttribute="leading" id="PA8-Ws-ty5"/>
                             <constraint firstItem="FQW-J1-cEn" firstAttribute="bottom" secondItem="0PR-PT-vJY" secondAttribute="bottom" id="a1Q-K2-f8K"/>
-                            <constraint firstItem="ltW-Kh-IhG" firstAttribute="top" secondItem="FQW-J1-cEn" secondAttribute="top" id="qJl-tf-8Nu"/>
+                            <constraint firstItem="xwc-3e-8Oh" firstAttribute="centerX" secondItem="q0K-MH-U8j" secondAttribute="centerX" id="meP-Nc-lBU"/>
+                            <constraint firstItem="0PR-PT-vJY" firstAttribute="top" secondItem="xwc-3e-8Oh" secondAttribute="bottom" constant="20" id="qRX-Pt-3uw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HRW-0C-QQD">
@@ -106,6 +106,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mainImageView" destination="xwc-3e-8Oh" id="GIO-Ru-roq"/>
                         <outlet property="tableView" destination="0PR-PT-vJY" id="lPi-l9-ZOO"/>
                     </connections>
                 </viewController>
@@ -219,6 +220,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
