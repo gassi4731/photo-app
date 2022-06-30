@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		75A2F905286D5AD100ABA460 /* EditMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2F904286D5AD100ABA460 /* EditMemberViewController.swift */; };
+		75A2F909286D5FC400ABA460 /* EditMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2F907286D5FC400ABA460 /* EditMemberTableViewCell.swift */; };
+		75A2F90A286D5FC400ABA460 /* EditMemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A2F908286D5FC400ABA460 /* EditMemberTableViewCell.xib */; };
+		75A2F90D286D62E500ABA460 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2F90C286D62E500ABA460 /* Member.swift */; };
 		75CD310C286BFD76005C0283 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD310B286BFD76005C0283 /* AppDelegate.swift */; };
 		75CD310E286BFD76005C0283 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD310D286BFD76005C0283 /* SceneDelegate.swift */; };
 		75CD3110286BFD76005C0283 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD310F286BFD76005C0283 /* ViewController.swift */; };
@@ -41,6 +44,9 @@
 
 /* Begin PBXFileReference section */
 		75A2F904286D5AD100ABA460 /* EditMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemberViewController.swift; sourceTree = "<group>"; };
+		75A2F907286D5FC400ABA460 /* EditMemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemberTableViewCell.swift; sourceTree = "<group>"; };
+		75A2F908286D5FC400ABA460 /* EditMemberTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditMemberTableViewCell.xib; sourceTree = "<group>"; };
+		75A2F90C286D62E500ABA460 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		75CD3108286BFD76005C0283 /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75CD310B286BFD76005C0283 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75CD310D286BFD76005C0283 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +90,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		75A2F906286D5FA900ABA460 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				75A2F907286D5FC400ABA460 /* EditMemberTableViewCell.swift */,
+				75A2F908286D5FC400ABA460 /* EditMemberTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		75A2F90B286D62DA00ABA460 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				75A2F90C286D62E500ABA460 /* Member.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		75CD30FF286BFD76005C0283 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +130,8 @@
 		75CD310A286BFD76005C0283 /* PhotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				75A2F90B286D62DA00ABA460 /* Model */,
+				75A2F906286D5FA900ABA460 /* Cell */,
 				75CD313F286C03D2005C0283 /* Controller */,
 				75CD310B286BFD76005C0283 /* AppDelegate.swift */,
 				75CD310D286BFD76005C0283 /* SceneDelegate.swift */,
@@ -252,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75CD3118286BFD77005C0283 /* LaunchScreen.storyboard in Resources */,
+				75A2F90A286D5FC400ABA460 /* EditMemberTableViewCell.xib in Resources */,
 				75CD3115286BFD77005C0283 /* Assets.xcassets in Resources */,
 				75CD3113286BFD76005C0283 /* Main.storyboard in Resources */,
 			);
@@ -279,8 +305,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				75A2F905286D5AD100ABA460 /* EditMemberViewController.swift in Sources */,
+				75A2F909286D5FC400ABA460 /* EditMemberTableViewCell.swift in Sources */,
 				75CD3110286BFD76005C0283 /* ViewController.swift in Sources */,
 				75CD313E286BFE37005C0283 /* CommunityTopViewController.swift in Sources */,
+				75A2F90D286D62E500ABA460 /* Member.swift in Sources */,
 				75CD3141286C0423005C0283 /* CommunityMemberViewController.swift in Sources */,
 				75CD313C286BFE0F005C0283 /* WelcomeViewController.swift in Sources */,
 				75CD310C286BFD76005C0283 /* AppDelegate.swift in Sources */,

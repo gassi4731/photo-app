@@ -18,6 +18,7 @@ class CommunityTopViewController: UIViewController {
 
     @IBAction func tappedAddButton() {
         let nextVC = storyboard?.instantiateViewController(withIdentifier: "EditMemberVC") as! EditMemberViewController
+        nextVC.isCreate = true
         let navigationController = UINavigationController(rootViewController: nextVC)
         present(navigationController, animated: true)
     }

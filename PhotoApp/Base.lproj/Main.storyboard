@@ -59,13 +59,55 @@
                     <view key="view" contentMode="scaleToFill" id="q0K-MH-U8j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ltW-Kh-IhG">
+                                <rect key="frame" x="132" y="88" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="i0g-fZ-LKH"/>
+                                    <constraint firstAttribute="width" constant="150" id="v7S-AH-llU"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0PR-PT-vJY">
+                                <rect key="frame" x="0.0" y="258" width="414" height="604"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditMemberCell" id="gcA-vL-GyC" customClass="EditMemberTableViewCell" customModule="PhotoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gcA-vL-GyC" id="IsC-BP-khz">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="FQW-J1-cEn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FQW-J1-cEn" firstAttribute="trailing" secondItem="0PR-PT-vJY" secondAttribute="trailing" id="24a-zu-yTI"/>
+                            <constraint firstItem="0PR-PT-vJY" firstAttribute="top" secondItem="ltW-Kh-IhG" secondAttribute="bottom" constant="20" id="HK9-dj-B4u"/>
+                            <constraint firstItem="ltW-Kh-IhG" firstAttribute="centerX" secondItem="q0K-MH-U8j" secondAttribute="centerX" id="IIj-YI-nlX"/>
+                            <constraint firstItem="0PR-PT-vJY" firstAttribute="leading" secondItem="FQW-J1-cEn" secondAttribute="leading" id="PA8-Ws-ty5"/>
+                            <constraint firstItem="FQW-J1-cEn" firstAttribute="bottom" secondItem="0PR-PT-vJY" secondAttribute="bottom" id="a1Q-K2-f8K"/>
+                            <constraint firstItem="ltW-Kh-IhG" firstAttribute="top" secondItem="FQW-J1-cEn" secondAttribute="top" id="qJl-tf-8Nu"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HRW-0C-QQD">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="d46-ZE-0TK"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="n3z-0x-gbg"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="d46-ZE-0TK">
+                            <connections>
+                                <action selector="tappedCancelButton" destination="qfe-fv-FJB" id="xmY-ie-Tnh"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="n3z-0x-gbg">
+                            <connections>
+                                <action selector="tappedSaveButton" destination="qfe-fv-FJB" id="jbn-J1-6fq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="0PR-PT-vJY" id="lPi-l9-ZOO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IYu-yT-Xzx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
