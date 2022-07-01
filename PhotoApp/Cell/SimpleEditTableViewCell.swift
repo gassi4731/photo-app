@@ -7,7 +7,13 @@
 
 import UIKit
 
-class EditMemberTableViewCell: UITableViewCell {
+struct SimpleEditContent {
+    let title: String
+    let placeholder: String
+    var value: String
+}
+
+class SimpleEditTableViewCell: UITableViewCell {
     
     @IBOutlet var label: UILabel!
     @IBOutlet var textField: UITextField!
@@ -23,7 +29,7 @@ class EditMemberTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setCell(contents: EditMemberContent) {
+    func setCell(contents: SimpleEditContent) {
         label.text = contents.title
         textField.text = contents.value
         textField.placeholder = "例: \(contents.placeholder)"

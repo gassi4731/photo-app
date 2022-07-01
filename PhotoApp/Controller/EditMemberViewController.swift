@@ -8,18 +8,12 @@
 import UIKit
 import FirebaseFirestore
 
-struct EditMemberContent {
-    let title: String
-    let placeholder: String
-    var value: String
-}
-
 class EditMemberViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var isCreate: Bool!
     var member: Member = Member(document: nil)
     var groupId: String!
-    var editMemberContents: [EditMemberContent] = []
+    var editMemberContents: [SimpleEditContent] = []
     var editImageContents: [MemberIntroductionImage] = []
     var imagePicker: UIImagePickerController!
     
@@ -40,7 +34,7 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "EditMemberTableViewCell", bundle: nil), forCellReuseIdentifier: "EditMemberCell")
+        tableView.register(UINib(nibName: "SimpleEditTableViewCell", bundle: nil), forCellReuseIdentifier: "SimpleEditCell")
         tableView.register(UINib(nibName: "EditImageTableViewCell", bundle: nil), forCellReuseIdentifier: "EditImageCell")
         tableView.estimatedRowHeight = 66
         tableView.rowHeight = UITableView.automaticDimension
@@ -53,10 +47,10 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
         mainImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tappedMainImage(_:))))
         
         editMemberContents.append(contentsOf: [
-            EditMemberContent(title: "名前", placeholder: "田中 太郎", value: member.name),
-            EditMemberContent(title: "Twitter", placeholder: "https://twitter.com/username", value: member.sns.twitter),
-            EditMemberContent(title: "Instagram", placeholder: "https://www.facebook.com/username/", value: member.sns.facebook),
-            EditMemberContent(title: "Web", placeholder: "https://sample.com", value: member.sns.web)
+            SimpleEditContent(title: "名前", placeholder: "田中 太郎", value: member.name),
+            SimpleEditContent(title: "Twitter", placeholder: "https://twitter.com/username", value: member.sns.twitter),
+            SimpleEditContent(title: "Instagram", placeholder: "https://www.facebook.com/username/", value: member.sns.facebook),
+            SimpleEditContent(title: "Web", placeholder: "https://sample.com", value: member.sns.web)
         ])
         editImageContents.append(MemberIntroductionImage(document: nil))
         
@@ -70,7 +64,7 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func tappedSaveButton() {
-        let firstCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! EditMemberTableViewCell
+        let firstCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! SimpleEditTableViewCell
         if mainImageView.image == UIImage(systemName: "camera.circle") {
             showAlert(title: "人の画像を設定してください")
         } else if firstCell.textField.text == "" {
@@ -100,10 +94,10 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func fetchTextField() {
-        let nameTextCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! EditMemberTableViewCell
-        let twitterCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! EditMemberTableViewCell
-        let facebookCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! EditMemberTableViewCell
-        let webCell = tableView.cellForRow(at: IndexPath(row: 3, section: 0)) as! EditMemberTableViewCell
+        let nameTextCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! SimpleEditTableViewCell
+        let twitterCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! SimpleEditTableViewCell
+        let facebookCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! SimpleEditTableViewCell
+        let webCell = tableView.cellForRow(at: IndexPath(row: 3, section: 0)) as! SimpleEditTableViewCell
         
         member.name = nameTextCell.textField.text ?? ""
         member.sns.twitter = twitterCell.textField.text ?? ""
@@ -115,7 +109,7 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
 extension EditMemberViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row < editMemberContents.count {
-            let memberCell = tableView.dequeueReusableCell(withIdentifier: "EditMemberCell", for: indexPath) as! EditMemberTableViewCell
+            let memberCell = tableView.dequeueReusableCell(withIdentifier: "EditMemberCell", for: indexPath) as! SimpleEditTableViewCell
             memberCell.setCell(contents: editMemberContents[indexPath.row])
             return memberCell
         } else {
