@@ -28,6 +28,7 @@ class CommunityMemberViewController: UIViewController {
         let nextVC = storyboard?.instantiateViewController(withIdentifier: "EditMemberVC") as! EditMemberViewController
         nextVC.isCreate = false
         nextVC.member = member
+        nextVC.editImageContents = member.images ?? []
         let navigationController = UINavigationController(rootViewController: nextVC)
         present(navigationController, animated: true)
     }

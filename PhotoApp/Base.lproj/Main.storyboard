@@ -126,6 +126,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditImageCell" id="6tb-rt-twE" customClass="EditImageTableViewCell" customModule="PhotoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="88" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6tb-rt-twE" id="NwO-eD-bz2">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xwc-3e-8Oh">
@@ -438,12 +446,95 @@
             </objects>
             <point key="canvasLocation" x="1931.8840579710147" y="1528.7946428571429"/>
         </scene>
+        <!--Edit Introduction Image View Controller-->
+        <scene sceneID="MuI-9b-78N">
+            <objects>
+                <viewController id="Jdq-j4-GTL" customClass="EditIntroductionImageViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qHO-2s-INw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fKa-1N-KVs">
+                                <rect key="frame" x="0.0" y="88" width="414" height="233"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fKa-1N-KVs" secondAttribute="height" multiplier="16:9" id="47k-Ch-4rt"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OeG-oQ-4lE">
+                                <rect key="frame" x="0.0" y="321" width="414" height="541"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditMemberCell" id="i2B-I3-nGA" customClass="EditMemberTableViewCell" customModule="PhotoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i2B-I3-nGA" id="j1n-4Q-ZRy">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eeu-TB-YFh">
+                                <rect key="frame" x="369" y="276.5" width="30" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="GVZ-qn-EUF"/>
+                                    <constraint firstAttribute="height" constant="30" id="aaK-qZ-F76"/>
+                                </constraints>
+                                <imageReference key="image" image="photo.circle.fill" catalog="system" symbolScale="medium"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="W8P-oL-SeV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OeG-oQ-4lE" firstAttribute="top" secondItem="eeu-TB-YFh" secondAttribute="bottom" constant="15" id="4w5-SJ-MPf"/>
+                            <constraint firstItem="fKa-1N-KVs" firstAttribute="top" secondItem="W8P-oL-SeV" secondAttribute="top" id="BAA-yw-7xu"/>
+                            <constraint firstItem="W8P-oL-SeV" firstAttribute="trailing" secondItem="OeG-oQ-4lE" secondAttribute="trailing" id="Riy-AL-LNR"/>
+                            <constraint firstItem="fKa-1N-KVs" firstAttribute="leading" secondItem="W8P-oL-SeV" secondAttribute="leading" id="VpK-AC-WZX"/>
+                            <constraint firstItem="W8P-oL-SeV" firstAttribute="trailing" secondItem="eeu-TB-YFh" secondAttribute="trailing" constant="15" id="c9C-zA-aM1"/>
+                            <constraint firstItem="W8P-oL-SeV" firstAttribute="trailing" secondItem="fKa-1N-KVs" secondAttribute="trailing" id="dwB-eD-A45"/>
+                            <constraint firstItem="OeG-oQ-4lE" firstAttribute="top" secondItem="fKa-1N-KVs" secondAttribute="bottom" id="f8j-5J-nq0"/>
+                            <constraint firstItem="W8P-oL-SeV" firstAttribute="bottom" secondItem="OeG-oQ-4lE" secondAttribute="bottom" id="rv6-ma-Fd3"/>
+                            <constraint firstItem="OeG-oQ-4lE" firstAttribute="leading" secondItem="W8P-oL-SeV" secondAttribute="leading" id="xre-qE-SHR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gFn-8a-31Y">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AdT-SD-pUe"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="sUP-Np-4kN"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TYb-PV-I7K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4013.04347826087" y="1525.4464285714284"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CiG-rq-qjq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dzg-1V-iFg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bIV-gM-Va2">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Jdq-j4-GTL" kind="relationship" relationship="rootViewController" id="zem-fc-oY9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hus-Hn-wvV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3102.898550724638" y="1525.4464285714284"/>
+        </scene>
     </scenes>
     <resources>
         <image name="camera.circle" catalog="system" width="128" height="121"/>
+        <image name="photo.circle.fill" catalog="system" width="128" height="121"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

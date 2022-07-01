@@ -12,6 +12,9 @@
 		750E82FE286D9D2100B5885F /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750E82FC286D9D2100B5885F /* ImageCollectionViewCell.xib */; };
 		750E8300286DB3A800B5885F /* CommunityMemberContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750E82FF286DB3A800B5885F /* CommunityMemberContainerViewController.swift */; };
 		75209811286E6CFB000B3F0D /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75209810286E6CFB000B3F0D /* ImageDetailViewController.swift */; };
+		75571FA8286EC1FB005CEAB1 /* EditImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75571FA6286EC1FB005CEAB1 /* EditImageTableViewCell.swift */; };
+		75571FA9286EC1FB005CEAB1 /* EditImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75571FA7286EC1FB005CEAB1 /* EditImageTableViewCell.xib */; };
+		755A1423286F1E6500AA9879 /* EditIntroductionImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A1422286F1E6500AA9879 /* EditIntroductionImageViewController.swift */; };
 		75A2F905286D5AD100ABA460 /* EditMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2F904286D5AD100ABA460 /* EditMemberViewController.swift */; };
 		75A2F909286D5FC400ABA460 /* EditMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2F907286D5FC400ABA460 /* EditMemberTableViewCell.swift */; };
 		75A2F90A286D5FC400ABA460 /* EditMemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A2F908286D5FC400ABA460 /* EditMemberTableViewCell.xib */; };
@@ -60,6 +63,9 @@
 		750E82FC286D9D2100B5885F /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		750E82FF286DB3A800B5885F /* CommunityMemberContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityMemberContainerViewController.swift; sourceTree = "<group>"; };
 		75209810286E6CFB000B3F0D /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
+		75571FA6286EC1FB005CEAB1 /* EditImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageTableViewCell.swift; sourceTree = "<group>"; };
+		75571FA7286EC1FB005CEAB1 /* EditImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditImageTableViewCell.xib; sourceTree = "<group>"; };
+		755A1422286F1E6500AA9879 /* EditIntroductionImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIntroductionImageViewController.swift; sourceTree = "<group>"; };
 		75A2F904286D5AD100ABA460 /* EditMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemberViewController.swift; sourceTree = "<group>"; };
 		75A2F907286D5FC400ABA460 /* EditMemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemberTableViewCell.swift; sourceTree = "<group>"; };
 		75A2F908286D5FC400ABA460 /* EditMemberTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditMemberTableViewCell.xib; sourceTree = "<group>"; };
@@ -129,6 +135,8 @@
 				75A2F908286D5FC400ABA460 /* EditMemberTableViewCell.xib */,
 				750E82FB286D9D2100B5885F /* ImageCollectionViewCell.swift */,
 				750E82FC286D9D2100B5885F /* ImageCollectionViewCell.xib */,
+				75571FA6286EC1FB005CEAB1 /* EditImageTableViewCell.swift */,
+				75571FA7286EC1FB005CEAB1 /* EditImageTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -207,6 +215,7 @@
 				75A2F904286D5AD100ABA460 /* EditMemberViewController.swift */,
 				750E82FF286DB3A800B5885F /* CommunityMemberContainerViewController.swift */,
 				75209810286E6CFB000B3F0D /* ImageDetailViewController.swift */,
+				755A1422286F1E6500AA9879 /* EditIntroductionImageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -331,6 +340,7 @@
 				75CD3115286BFD77005C0283 /* Assets.xcassets in Resources */,
 				75CD3113286BFD76005C0283 /* Main.storyboard in Resources */,
 				75CF4E20286E7AC80012D18A /* GoogleService-Info.plist in Resources */,
+				75571FA9286EC1FB005CEAB1 /* EditImageTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +372,9 @@
 				75CD313E286BFE37005C0283 /* CommunityTopViewController.swift in Sources */,
 				75CF4E22286E7BA00012D18A /* Community.swift in Sources */,
 				750E82FD286D9D2100B5885F /* ImageCollectionViewCell.swift in Sources */,
+				75571FA8286EC1FB005CEAB1 /* EditImageTableViewCell.swift in Sources */,
 				750E82F8286D9C4400B5885F /* UIImageView+.swift in Sources */,
+				755A1423286F1E6500AA9879 /* EditIntroductionImageViewController.swift in Sources */,
 				750E8300286DB3A800B5885F /* CommunityMemberContainerViewController.swift in Sources */,
 				75A2F90D286D62E500ABA460 /* Member.swift in Sources */,
 				75CD3141286C0423005C0283 /* CommunityMemberViewController.swift in Sources */,

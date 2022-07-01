@@ -20,6 +20,7 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
     var member: Member = Member(document: nil)
     var groupId: String!
     var editMemberContents: [EditMemberContent] = []
+    var editImageContents: [MemberIntroductionImage] = []
     var imagePicker: UIImagePickerController!
     
     @IBOutlet var tableView: UITableView!
@@ -40,6 +41,9 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "EditMemberTableViewCell", bundle: nil), forCellReuseIdentifier: "EditMemberCell")
+        tableView.register(UINib(nibName: "EditImageTableViewCell", bundle: nil), forCellReuseIdentifier: "EditImageCell")
+        tableView.estimatedRowHeight = 66
+        tableView.rowHeight = UITableView.automaticDimension
         
         imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
@@ -54,6 +58,7 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
             EditMemberContent(title: "Instagram", placeholder: "https://www.facebook.com/username/", value: member.sns.facebook),
             EditMemberContent(title: "Web", placeholder: "https://sample.com", value: member.sns.web)
         ])
+        editImageContents.append(MemberIntroductionImage(document: nil))
         
         if member.mainImageUrl != "" {
             mainImageView.downloaded(from: member.mainImageUrl, contentMode: .scaleAspectFill)
@@ -109,13 +114,20 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
 
 extension EditMemberViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EditMemberCell", for: indexPath) as! EditMemberTableViewCell
-        cell.setCell(contents: editMemberContents[indexPath.row])
-        return cell
+        if indexPath.row < editMemberContents.count {
+            let memberCell = tableView.dequeueReusableCell(withIdentifier: "EditMemberCell", for: indexPath) as! EditMemberTableViewCell
+            memberCell.setCell(contents: editMemberContents[indexPath.row])
+            return memberCell
+        } else {
+            let imageCell = tableView.dequeueReusableCell(withIdentifier: "EditImageCell", for: indexPath) as! EditImageTableViewCell
+            let index = indexPath.row - editMemberContents.count
+            imageCell.setCell(introImage: editImageContents[index], index: index)
+            return imageCell
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return editMemberContents.count
+        return editMemberContents.count + editImageContents.count
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
