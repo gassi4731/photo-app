@@ -19,22 +19,33 @@ class EditIntroductionImageViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        editTableView.delegate = self
+        editTableView.dataSource = self
         editTableView.register(UINib(nibName: "SimpleEditTableViewCell", bundle: nil), forCellReuseIdentifier: "SimpleEditCell")
         
         if introductionImage != nil {
             imageView.image = UIImage(url: introductionImage.imageUrl)
+            editContents.append(contentsOf: [
+                SimpleEditContent(title: "タイトル", placeholder: "例: 犬", value: introductionImage.title),
+                SimpleEditContent(title: "説明", placeholder: "例: 実家では犬を5匹飼ってました！", value: introductionImage.discription),
+            ])
+        } else {
+            editContents.append(contentsOf: [
+                SimpleEditContent(title: "タイトル", placeholder: "例: 犬", value: ""),
+                SimpleEditContent(title: "説明", placeholder: "例: 実家では犬を5匹飼ってました！", value: ""),
+            ])
         }
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension EditIntroductionImageViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return editContents.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = editTableView.dequeueReusableCell(withIdentifier: "SimpleEditCell") as! SimpleEditTableViewCell
+        cell.setCell(contents: editContents[indexPath.row])
+        return cell
+    }
 }

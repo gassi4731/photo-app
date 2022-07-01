@@ -502,6 +502,10 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AdT-SD-pUe"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="sUP-Np-4kN"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="editTableView" destination="OeG-oQ-4lE" id="Z3X-dC-65s"/>
+                        <outlet property="imageView" destination="fKa-1N-KVs" id="uo4-FI-Dfp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYb-PV-I7K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
