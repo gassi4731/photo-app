@@ -53,6 +53,15 @@ extension CommunityMemberContainerViewController: UICollectionViewDelegate, UICo
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ImageDetailVC") as! ImageDetailViewController
+        vc.memberIntroductionImage = member.images![indexPath.row]
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+        }
+        present(vc, animated: true, completion: nil)
+    }
+    
     // アイテムの大きさを設定（UICollectionViewDelegateFlowLayout が必要）
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // 横方向のスペース調整

@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -339,6 +340,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="q7I-jd-A9N"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="PqK-ND-bFW" secondAttribute="trailing" id="6d5-uD-luN"/>
@@ -365,9 +367,84 @@
             </objects>
             <point key="canvasLocation" x="1020" y="1564"/>
         </scene>
+        <!--Image Detail View Controller-->
+        <scene sceneID="tlN-8B-ku1">
+            <objects>
+                <viewController storyboardIdentifier="ImageDetailVC" id="HF1-cS-BY6" customClass="ImageDetailViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KHF-Aj-hzG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D4y-kd-tIW">
+                                <rect key="frame" x="0.0" y="44" width="414" height="233"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="D4y-kd-tIW" secondAttribute="height" multiplier="16:9" id="Vmx-wp-jaT"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIx-Iu-axP">
+                                <rect key="frame" x="15" y="292" width="384" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ng-2b-7Kt">
+                                <rect key="frame" x="12" y="327" width="390" height="520"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MpZ-VT-pfV">
+                                <rect key="frame" x="369" y="59" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="0so-r6-983"/>
+                                    <constraint firstAttribute="height" constant="30" id="DGQ-r9-W2J"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="xmark.circle.fill" catalog="system" symbolScale="default"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedCloseButton" destination="HF1-cS-BY6" eventType="touchUpInside" id="Pp7-YQ-D95"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8dP-Qu-s7d"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3Ng-2b-7Kt" firstAttribute="leading" secondItem="8dP-Qu-s7d" secondAttribute="leading" constant="12" id="8sx-BF-F5L"/>
+                            <constraint firstItem="8dP-Qu-s7d" firstAttribute="trailing" secondItem="3Ng-2b-7Kt" secondAttribute="trailing" constant="12" id="CsD-fU-1tf"/>
+                            <constraint firstItem="dIx-Iu-axP" firstAttribute="top" secondItem="D4y-kd-tIW" secondAttribute="bottom" constant="15" id="DwW-Oy-rR6"/>
+                            <constraint firstItem="8dP-Qu-s7d" firstAttribute="trailing" secondItem="dIx-Iu-axP" secondAttribute="trailing" constant="15" id="E6G-Ky-Hlk"/>
+                            <constraint firstItem="8dP-Qu-s7d" firstAttribute="trailing" secondItem="D4y-kd-tIW" secondAttribute="trailing" id="Ndd-1y-9te"/>
+                            <constraint firstItem="D4y-kd-tIW" firstAttribute="centerX" secondItem="KHF-Aj-hzG" secondAttribute="centerX" id="Pbt-5L-yXa"/>
+                            <constraint firstItem="3Ng-2b-7Kt" firstAttribute="top" secondItem="dIx-Iu-axP" secondAttribute="bottom" constant="5" id="cB3-Os-75j"/>
+                            <constraint firstItem="MpZ-VT-pfV" firstAttribute="top" secondItem="8dP-Qu-s7d" secondAttribute="top" constant="15" id="cJ3-gf-oJC"/>
+                            <constraint firstItem="8dP-Qu-s7d" firstAttribute="trailing" secondItem="MpZ-VT-pfV" secondAttribute="trailing" constant="15" id="ja2-dX-H0E"/>
+                            <constraint firstItem="dIx-Iu-axP" firstAttribute="leading" secondItem="8dP-Qu-s7d" secondAttribute="leading" constant="15" id="qX3-xm-mkN"/>
+                            <constraint firstItem="D4y-kd-tIW" firstAttribute="top" secondItem="8dP-Qu-s7d" secondAttribute="top" id="rFH-ML-zDr"/>
+                            <constraint firstItem="D4y-kd-tIW" firstAttribute="leading" secondItem="8dP-Qu-s7d" secondAttribute="leading" id="vHN-2f-Vc2"/>
+                            <constraint firstItem="8dP-Qu-s7d" firstAttribute="bottom" secondItem="3Ng-2b-7Kt" secondAttribute="bottom" constant="15" id="xjb-hH-yRQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="discriptionTextView" destination="3Ng-2b-7Kt" id="rmP-Gn-JbR"/>
+                        <outlet property="imageView" destination="D4y-kd-tIW" id="2d8-1B-fFR"/>
+                        <outlet property="titleLabel" destination="dIx-Iu-axP" id="clM-rM-O1Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WJd-Lp-5ys" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1931.8840579710147" y="1528.7946428571429"/>
+        </scene>
     </scenes>
     <resources>
         <image name="camera.circle" catalog="system" width="128" height="121"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
