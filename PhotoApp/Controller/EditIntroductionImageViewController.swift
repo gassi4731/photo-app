@@ -19,7 +19,7 @@ class EditIntroductionImageViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        editTableView.register(UINib(nibName: "EditMemberTableViewCell", bundle: nil), forCellReuseIdentifier: "EditMemberCell")
+        editTableView.register(UINib(nibName: "SimpleEditTableViewCell", bundle: nil), forCellReuseIdentifier: "SimpleEditCell")
         
         if introductionImage != nil {
             imageView.image = UIImage(url: introductionImage.imageUrl)

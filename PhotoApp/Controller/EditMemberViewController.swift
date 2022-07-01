@@ -109,7 +109,7 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
 extension EditMemberViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row < editMemberContents.count {
-            let memberCell = tableView.dequeueReusableCell(withIdentifier: "EditMemberCell", for: indexPath) as! SimpleEditTableViewCell
+            let memberCell = tableView.dequeueReusableCell(withIdentifier: "SimpleEditCell", for: indexPath) as! SimpleEditTableViewCell
             memberCell.setCell(contents: editMemberContents[indexPath.row])
             return memberCell
         } else {
