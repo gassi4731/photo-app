@@ -9,10 +9,10 @@ import Foundation
 import FirebaseFirestore
 
 struct Member {
-    let name: String
-    let mainImageUrl: String
-    let images: [MemberIntroductionImage]?
-    let sns: MemberSNS
+    var name: String
+    var mainImageUrl: String
+    var images: [MemberIntroductionImage]?
+    var sns: MemberSNS
     let id: String
     
     init(document: QueryDocumentSnapshot?) {
@@ -28,12 +28,28 @@ struct Member {
             images = imageDocuments.map{ MemberIntroductionImage(document: $0) }
         }
     }
+    
+    func getStringArray() -> [String: Any] {
+        var arrayImages: [[String: String]] = []
+        
+        if images != nil {
+            arrayImages = images!.map{ $0.getStringArray() }
+        }
+        
+        let data = [
+            "name": name,
+            "mainImageUrl": mainImageUrl,
+            "images": arrayImages,
+            "sns": sns.getStringArray(),
+        ] as [String : Any]
+        return data
+    }
 }
 
 struct MemberIntroductionImage {
-    let imageUrl: String
-    let title: String
-    let discription: String
+    var imageUrl: String
+    var title: String
+    var discription: String
     
     init(document: [String: Any]?) {
         if document == nil {
@@ -44,12 +60,21 @@ struct MemberIntroductionImage {
             discription = document!["discription"] as! String
         }
     }
+    
+    func getStringArray() -> [String: String] {
+        let data = [
+            "imageUrl": imageUrl,
+            "title": title,
+            "discription": discription,
+        ]
+        return data
+    }
 }
 
 struct MemberSNS {
-    let twitter: String
-    let facebook: String
-    let web: String
+    var twitter: String
+    var facebook: String
+    var web: String
 
     init(document: [String: Any]?) {
         if document == nil {
@@ -59,5 +84,14 @@ struct MemberSNS {
             facebook = document!["facebook"] as! String
             web = document!["web"] as! String
         }
+    }
+    
+    func getStringArray() -> [String: String] {
+        let data = [
+            "twitter": twitter,
+            "facebook": facebook,
+            "web": web,
+        ]
+        return data
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 struct EditMemberContent {
     let title: String
@@ -17,6 +18,7 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var isCreate: Bool!
     var member: Member = Member(document: nil)
+    var groupId: String!
     var editMemberContents: [EditMemberContent] = []
     var imagePicker: UIImagePickerController!
     
@@ -32,6 +34,8 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
         } else {
             title = "編集"
         }
+        
+        groupId = UserDefaults.standard.string(forKey: "groupId")
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -66,8 +70,11 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
             showAlert(title: "人の画像を設定してください")
         } else if firstCell.textField.text == "" {
             showAlert(title: "名前を設定してください")
+        } else {
+            fetchTextField()
+            isCreate ? addMember() : updateMember()
+            dismiss(animated: true)
         }
-        // TODO: saveの動作を追加
     }
     
     @objc func tappedMainImage(_ sender: UITapGestureRecognizer) {
@@ -86,6 +93,18 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
         
         present(alert, animated: true, completion: nil)
     }
+    
+    func fetchTextField() {
+        let nameTextCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! EditMemberTableViewCell
+        let twitterCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! EditMemberTableViewCell
+        let facebookCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! EditMemberTableViewCell
+        let webCell = tableView.cellForRow(at: IndexPath(row: 3, section: 0)) as! EditMemberTableViewCell
+        
+        member.name = nameTextCell.textField.text ?? ""
+        member.sns.twitter = twitterCell.textField.text ?? ""
+        member.sns.facebook = facebookCell.textField.text ?? ""
+        member.sns.web = webCell.textField.text ?? ""
+    }
 }
 
 extension EditMemberViewController {
@@ -97,6 +116,10 @@ extension EditMemberViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return editMemberContents.count
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
 }
 
@@ -114,5 +137,26 @@ extension EditMemberViewController: UIImagePickerControllerDelegate, UINavigatio
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: Firestore
+extension EditMemberViewController {
+    func addMember() {
+        let db = Firestore.firestore()
+        var ref: DocumentReference? = nil
+        ref = db.collection("group").document(groupId).collection("member")
+            .addDocument(data: member.getStringArray()) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    print("Document added with ID: \(ref!.documentID)")
+                }
+            }
+    }
+    
+    func updateMember() {
+        let db = Firestore.firestore()
+        db.collection("group").document(groupId).collection("member").document(member.id).setData(member.getStringArray())
     }
 }
