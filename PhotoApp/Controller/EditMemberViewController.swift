@@ -16,7 +16,7 @@ struct EditMemberContent {
 class EditMemberViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var isCreate: Bool!
-    var member: Member = Member(name: "", mainImageUrl: "", images: nil, sns: MemberSNS(twitter: nil, facebook: nil, web: nil), id: "")
+    var member: Member = Member(document: nil)
     var editMemberContents: [EditMemberContent] = []
     var imagePicker: UIImagePickerController!
     
@@ -47,8 +47,8 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
         editMemberContents.append(contentsOf: [
             EditMemberContent(title: "名前", placeholder: "田中 太郎", value: member.name),
             EditMemberContent(title: "Twitter", placeholder: "https://twitter.com/username", value: member.sns.twitter),
-            EditMemberContent(title: "Instagram", placeholder: "https://www.facebook.com/username/", value: ""),
-            EditMemberContent(title: "Web", placeholder: "https://sample.com", value: "")
+            EditMemberContent(title: "Instagram", placeholder: "https://www.facebook.com/username/", value: member.sns.facebook),
+            EditMemberContent(title: "Web", placeholder: "https://sample.com", value: member.sns.web)
         ])
         
         if member.mainImageUrl != "" {

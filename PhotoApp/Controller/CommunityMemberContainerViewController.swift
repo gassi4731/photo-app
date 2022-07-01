@@ -48,6 +48,7 @@ extension CommunityMemberContainerViewController: UICollectionViewDelegate, UICo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = imageCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCollectionViewCell
+        cell.imageWidth = Double(self.view.bounds.width/3 - 17)
         cell.setCellFromMemberImage(image: member.images![indexPath.row])
         
         return cell

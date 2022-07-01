@@ -34,6 +34,7 @@
 		75CF4E18286E79840012D18A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 75CF4E17286E79840012D18A /* FirebaseStorage */; };
 		75CF4E1A286E79840012D18A /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 75CF4E19286E79840012D18A /* FirebaseStorageCombine-Community */; };
 		75CF4E20286E7AC80012D18A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75CF4E1F286E7AC80012D18A /* GoogleService-Info.plist */; };
+		75CF4E22286E7BA00012D18A /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CF4E21286E7BA00012D18A /* Community.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		75CD313D286BFE37005C0283 /* CommunityTopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTopViewController.swift; sourceTree = "<group>"; };
 		75CD3140286C0423005C0283 /* CommunityMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityMemberViewController.swift; sourceTree = "<group>"; };
 		75CF4E1F286E7AC80012D18A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		75CF4E21286E7BA00012D18A /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				75A2F90C286D62E500ABA460 /* Member.swift */,
+				75CF4E21286E7BA00012D18A /* Community.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				75A2F909286D5FC400ABA460 /* EditMemberTableViewCell.swift in Sources */,
 				75CD3110286BFD76005C0283 /* ViewController.swift in Sources */,
 				75CD313E286BFE37005C0283 /* CommunityTopViewController.swift in Sources */,
+				75CF4E22286E7BA00012D18A /* Community.swift in Sources */,
 				750E82FD286D9D2100B5885F /* ImageCollectionViewCell.swift in Sources */,
 				750E82F8286D9C4400B5885F /* UIImageView+.swift in Sources */,
 				750E8300286DB3A800B5885F /* CommunityMemberContainerViewController.swift in Sources */,

@@ -27,4 +27,20 @@ extension UIImageView {
         guard let url = URL(string: link) else { return }
         downloaded(from: url, contentMode: mode)
     }
+    
+    
+}
+
+extension UIImage {
+    public convenience init(url: String){
+        guard let urlPath = URL(string: url) else { print(url); self.init(); return }
+        do {
+            let data = try Data(contentsOf: urlPath)
+            self.init(data: data)!
+            return
+        } catch let err {
+            print("Error : \(err.localizedDescription)")
+        }
+        self.init()
+    }
 }
