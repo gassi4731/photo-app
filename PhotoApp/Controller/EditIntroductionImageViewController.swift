@@ -48,4 +48,9 @@ extension EditIntroductionImageViewController: UITableViewDelegate, UITableViewD
         cell.setCell(contents: editContents[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.selectionStyle = .none
+    }
 }

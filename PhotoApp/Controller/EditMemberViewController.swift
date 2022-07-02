@@ -125,6 +125,8 @@ extension EditMemberViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.selectionStyle = .none
         if indexPath.row >= editMemberContents.count {
             let index = indexPath.row - editMemberContents.count
             let nextVC = storyboard?.instantiateViewController(withIdentifier: "EditIntroductionImageVC") as! EditIntroductionImageViewController
