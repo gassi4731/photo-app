@@ -34,6 +34,7 @@ class CommunityMemberContainerViewController: UIViewController {
         title = member.name
         nameLabel.text = member.name
         mainImageView.image = UIImage(url: member.mainImageUrl)
+        imageCollectionView.reloadData()
     }
 }
 
