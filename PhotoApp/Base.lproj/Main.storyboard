@@ -309,7 +309,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PqK-ND-bFW">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PqK-ND-bFW">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="PqK-ND-bFW" secondAttribute="height" multiplier="1:1" id="Fai-6I-7Qp"/>
@@ -367,7 +367,7 @@
                     </view>
                     <connections>
                         <outlet property="imageCollectionView" destination="zZA-aA-gUX" id="G2i-y4-m4C"/>
-                        <outlet property="mainImageVIew" destination="PqK-ND-bFW" id="Tge-Mr-JRR"/>
+                        <outlet property="mainImageView" destination="PqK-ND-bFW" id="GfV-x0-sVl"/>
                         <outlet property="nameLabel" destination="RjK-D9-JZ8" id="WBI-wX-LmI"/>
                     </connections>
                 </viewController>

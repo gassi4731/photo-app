@@ -12,7 +12,7 @@ class CommunityMemberContainerViewController: UIViewController {
     var member: Member!
     
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var mainImageVIew: UIImageView!
+    @IBOutlet var mainImageView: UIImageView!
     @IBOutlet var imageCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class CommunityMemberContainerViewController: UIViewController {
     func setMemberInfo() {
         title = member.name
         nameLabel.text = member.name
-        mainImageVIew.downloaded(from: member.mainImageUrl)
+        mainImageView.image = UIImage(url: member.mainImageUrl)
     }
 }
 

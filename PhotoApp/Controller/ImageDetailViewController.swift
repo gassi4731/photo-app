@@ -19,7 +19,8 @@ class ImageDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        imageView.downloaded(from: memberIntroductionImage.imageUrl, contentMode: .scaleAspectFill)
+        imageView.image = UIImage(url: memberIntroductionImage.imageUrl)
+        imageView.contentMode = .scaleToFill
         titleLabel.text = memberIntroductionImage.title
         discriptionTextView.text = memberIntroductionImage.discription
     }

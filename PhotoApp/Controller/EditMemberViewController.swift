@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseStorage
 
 class EditMemberViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -55,7 +56,8 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
         editImageContents.append(MemberIntroductionImage(document: nil))
         
         if member.mainImageUrl != "" {
-            mainImageView.downloaded(from: member.mainImageUrl, contentMode: .scaleAspectFill)
+            mainImageView.image = UIImage(url: member.mainImageUrl)
+            mainImageView.contentMode = .scaleToFill
         }
     }
     
@@ -162,7 +164,7 @@ extension EditMemberViewController: UIImagePickerControllerDelegate, UINavigatio
         guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as! UIImage? else {return}
         
         // imageをimageViewに設定
-        mainImageView.image = selectedImage
+        uploadImage(data: selectedImage.jpegData(compressionQuality: 1)!)
         
         // imagePickerの削除
         self.dismiss(animated: true, completion: nil)
@@ -198,5 +200,31 @@ extension EditMemberViewController {
                     print("Document successfully written!")
                 }
             }
+    }
+    
+    func uploadImage(data: Data) {
+        var downloadUrl: String!
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let imageRef = storageRef.child("member/\(UUID().uuidString).jpg")
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        _ = imageRef.putData(data, metadata: metadata) { (metadata, error) in
+            guard metadata != nil else {
+                // Uh-oh, an error occurred!
+                return
+            }
+            // You can also access to download URL after upload.
+            imageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+                downloadUrl = downloadURL.absoluteString
+                self.member.mainImageUrl = downloadUrl
+                self.mainImageView.image = UIImage(url: downloadUrl)
+            }
+        }
     }
 }
