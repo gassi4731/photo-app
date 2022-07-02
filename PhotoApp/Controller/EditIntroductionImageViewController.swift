@@ -27,14 +27,14 @@ class EditIntroductionImageViewController: UIViewController {
         if introductionImage != nil {
             imageView.image = UIImage(url: introductionImage.imageUrl)
             editContents.append(contentsOf: [
-                SimpleEditContent(title: "タイトル", placeholder: "例: 犬", value: introductionImage.title),
-                SimpleEditContent(title: "説明", placeholder: "例: 実家では犬を5匹飼ってました！", value: introductionImage.discription),
+                SimpleEditContent(title: "タイトル", placeholder: "犬", value: introductionImage.title),
+                SimpleEditContent(title: "説明", placeholder: "実家では犬を5匹飼ってました！", value: introductionImage.discription),
             ])
         } else {
             introductionImage = MemberIntroductionImage(document: nil)
             editContents.append(contentsOf: [
-                SimpleEditContent(title: "タイトル", placeholder: "例: 犬", value: ""),
-                SimpleEditContent(title: "説明", placeholder: "例: 実家では犬を5匹飼ってました！", value: ""),
+                SimpleEditContent(title: "タイトル", placeholder: "犬", value: ""),
+                SimpleEditContent(title: "説明", placeholder: "実家では犬を5匹飼ってました！", value: ""),
             ])
         }
     }
