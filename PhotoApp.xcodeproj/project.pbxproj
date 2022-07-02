@@ -28,7 +28,6 @@
 		75CD3123286BFD77005C0283 /* PhotoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD3122286BFD77005C0283 /* PhotoAppTests.swift */; };
 		75CD312D286BFD77005C0283 /* PhotoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD312C286BFD77005C0283 /* PhotoAppUITests.swift */; };
 		75CD312F286BFD77005C0283 /* PhotoAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD312E286BFD77005C0283 /* PhotoAppUITestsLaunchTests.swift */; };
-		75CD313C286BFE0F005C0283 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD313B286BFE0F005C0283 /* WelcomeViewController.swift */; };
 		75CD313E286BFE37005C0283 /* CommunityTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD313D286BFE37005C0283 /* CommunityTopViewController.swift */; };
 		75CD3141286C0423005C0283 /* CommunityMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD3140286C0423005C0283 /* CommunityMemberViewController.swift */; };
 		75CF4E12286E79840012D18A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 75CF4E11286E79840012D18A /* FirebaseAnalytics */; };
@@ -82,7 +81,6 @@
 		75CD3128286BFD77005C0283 /* PhotoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75CD312C286BFD77005C0283 /* PhotoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAppUITests.swift; sourceTree = "<group>"; };
 		75CD312E286BFD77005C0283 /* PhotoAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		75CD313B286BFE0F005C0283 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		75CD313D286BFE37005C0283 /* CommunityTopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTopViewController.swift; sourceTree = "<group>"; };
 		75CD3140286C0423005C0283 /* CommunityMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityMemberViewController.swift; sourceTree = "<group>"; };
 		75CF4E1F286E7AC80012D18A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -206,7 +204,6 @@
 		75CD313F286C03D2005C0283 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				75CD313B286BFE0F005C0283 /* WelcomeViewController.swift */,
 				75CD313D286BFE37005C0283 /* CommunityTopViewController.swift */,
 				75CD3140286C0423005C0283 /* CommunityMemberViewController.swift */,
 				75A2F904286D5AD100ABA460 /* EditMemberViewController.swift */,
@@ -374,7 +371,6 @@
 				750E8300286DB3A800B5885F /* CommunityMemberContainerViewController.swift in Sources */,
 				75A2F90D286D62E500ABA460 /* Member.swift in Sources */,
 				75CD3141286C0423005C0283 /* CommunityMemberViewController.swift in Sources */,
-				75CD313C286BFE0F005C0283 /* WelcomeViewController.swift in Sources */,
 				75CD310C286BFD76005C0283 /* AppDelegate.swift in Sources */,
 				75CD310E286BFD76005C0283 /* SceneDelegate.swift in Sources */,
 			);
