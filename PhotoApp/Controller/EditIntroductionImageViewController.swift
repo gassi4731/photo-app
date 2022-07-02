@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class EditIntroductionImageViewController: UIViewController {
     
     var introductionImage: MemberIntroductionImage!
     var index: Int!
     var editContents: [SimpleEditContent] = []
+    var imagePicker: UIImagePickerController!
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var editTableView: UITableView!
@@ -23,6 +25,12 @@ class EditIntroductionImageViewController: UIViewController {
         editTableView.delegate = self
         editTableView.dataSource = self
         editTableView.register(UINib(nibName: "SimpleEditTableViewCell", bundle: nil), forCellReuseIdentifier: "SimpleEditCell")
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tappedImage(_:))))
         
         if introductionImage != nil {
             imageView.image = UIImage(url: introductionImage.imageUrl)
@@ -37,6 +45,10 @@ class EditIntroductionImageViewController: UIViewController {
                 SimpleEditContent(title: "説明", placeholder: "実家では犬を5匹飼ってました！", value: ""),
             ])
         }
+    }
+    
+    @objc func tappedImage(_ sender: UITapGestureRecognizer) {
+        present(imagePicker, animated: true)
     }
     
     @IBAction func tappedCancelButton() {
@@ -75,5 +87,49 @@ extension EditIntroductionImageViewController: UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.selectionStyle = .none
+    }
+}
+
+extension EditIntroductionImageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // 選択されたimageを取得
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage? else {return}
+        
+        // imageをimageViewに設定
+        uploadImage(data: selectedImage.jpegData(compressionQuality: 1)!)
+        
+        // imagePickerの削除
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: -FireStorage
+extension EditIntroductionImageViewController {
+    func uploadImage(data: Data) {
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let imageRef = storageRef.child("member/introductionImage/\(UUID().uuidString).jpg")
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        _ = imageRef.putData(data, metadata: metadata) { ( metadata, error ) in
+            guard metadata != nil else {
+                // Uh-oh, an error occurred!
+                return
+            }
+            imageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+                let urlString = downloadURL.absoluteString
+                self.introductionImage.imageUrl = urlString
+                self.imageView.image = UIImage(url: urlString)
+            }
+        }
     }
 }
