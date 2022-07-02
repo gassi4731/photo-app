@@ -54,7 +54,7 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if member.mainImageUrl != "" {
             mainImageView.image = UIImage(url: member.mainImageUrl)
-            mainImageView.contentMode = .scaleToFill
+            mainImageView.contentMode = .scaleAspectFill
         }
     }
     

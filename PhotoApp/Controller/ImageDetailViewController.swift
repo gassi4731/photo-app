@@ -20,7 +20,7 @@ class ImageDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         imageView.image = UIImage(url: memberIntroductionImage.imageUrl)
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         titleLabel.text = memberIntroductionImage.title
         discriptionTextView.text = memberIntroductionImage.discription
     }
