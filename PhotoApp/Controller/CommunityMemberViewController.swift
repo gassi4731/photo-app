@@ -6,15 +6,19 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class CommunityMemberViewController: UIViewController {
     
     var member: Member!
+    var groupId: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        groupId = UserDefaults.standard.string(forKey: "groupId")
+        fetchData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,15 +36,28 @@ class CommunityMemberViewController: UIViewController {
         let navigationController = UINavigationController(rootViewController: nextVC)
         present(navigationController, animated: true)
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+}
+
+// MARK: -Firebase
+extension CommunityMemberViewController {
+    func fetchData() {
+        let db = Firestore.firestore()
+        db.collection("group").document(groupId).collection("member").document(member.id)
+            .addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                guard let data = document.data() else {
+                    print("Document data was empty.")
+                    return
+                }
+                self.member.updateFromArray(data: data)
+                self.navigationItem.title = self.member.name
+                
+                let container = self.children[0] as! CommunityMemberContainerViewController
+                container.member = self.member
+                container.setMemberInfo()
+            }
+    }
 }

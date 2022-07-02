@@ -29,6 +29,15 @@ struct Member {
         }
     }
     
+    mutating func updateFromArray(data: [String: Any]) {
+        name = data["name"] as! String
+        mainImageUrl = data["mainImageUrl"] as? String ?? ""
+        sns = MemberSNS(document: data["sns"] as? [String: Any])
+        
+        let imageDocuments = data["images"] as! [[String: Any]]
+        images = imageDocuments.map{ MemberIntroductionImage(document: $0) }
+    }
+    
     func getStringArray() -> [String: Any] {
         var arrayImages: [[String: String]] = []
         

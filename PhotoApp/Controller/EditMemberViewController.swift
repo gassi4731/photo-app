@@ -190,6 +190,13 @@ extension EditMemberViewController {
     
     func updateMember() {
         let db = Firestore.firestore()
-        db.collection("group").document(groupId).collection("member").document(member.id).setData(member.getStringArray())
+        db.collection("group").document(groupId).collection("member").document(member.id)
+            .setData(member.getStringArray()) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
     }
 }
