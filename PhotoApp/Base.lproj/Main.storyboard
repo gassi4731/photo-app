@@ -449,7 +449,7 @@
         <!--Edit Introduction Image View Controller-->
         <scene sceneID="MuI-9b-78N">
             <objects>
-                <viewController id="Jdq-j4-GTL" customClass="EditIntroductionImageViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditIntroductionImageVC" id="Jdq-j4-GTL" customClass="EditIntroductionImageViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qHO-2s-INw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

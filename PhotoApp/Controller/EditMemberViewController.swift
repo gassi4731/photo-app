@@ -124,8 +124,15 @@ extension EditMemberViewController {
         return editMemberContents.count + editImageContents.count
     }
     
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return false
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row >= editMemberContents.count {
+            let index = indexPath.row - editMemberContents.count
+            let nextVC = storyboard?.instantiateViewController(withIdentifier: "EditIntroductionImageVC") as! EditIntroductionImageViewController
+            if index < member.images?.count ?? 0 {
+                nextVC.introductionImage = member.images![index]
+            }
+            present(nextVC, animated: true)
+        }
     }
 }
 
