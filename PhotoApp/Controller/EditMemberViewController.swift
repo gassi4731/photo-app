@@ -70,7 +70,8 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
         } else if firstCell.textField.text == "" {
             showAlert(title: "名前を設定してください")
         } else {
-            fetchTextField()
+            fetchData()
+            
             isCreate ? addMember() : updateMember()
             dismiss(animated: true)
         }
@@ -93,7 +94,7 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
         present(alert, animated: true, completion: nil)
     }
     
-    func fetchTextField() {
+    func fetchData() {
         let nameTextCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! SimpleEditTableViewCell
         let twitterCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! SimpleEditTableViewCell
         let facebookCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! SimpleEditTableViewCell
@@ -103,6 +104,21 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
         member.sns.twitter = twitterCell.textField.text ?? ""
         member.sns.facebook = facebookCell.textField.text ?? ""
         member.sns.web = webCell.textField.text ?? ""
+        
+        var images = editImageContents
+        images.removeLast()
+        member.images = images
+    }
+    
+    func editImage(introductionImage: MemberIntroductionImage!, index: Int?) {
+        editImageContents.removeLast()
+        if index != nil {
+            editImageContents[index!] = introductionImage
+        } else {
+            editImageContents.append(introductionImage)
+        }
+        editImageContents.append(MemberIntroductionImage(document: nil))
+        tableView.reloadData()
     }
 }
 
@@ -131,9 +147,11 @@ extension EditMemberViewController {
             let index = indexPath.row - editMemberContents.count
             let nextVC = storyboard?.instantiateViewController(withIdentifier: "EditIntroductionImageVC") as! EditIntroductionImageViewController
             if index < member.images?.count ?? 0 {
-                nextVC.introductionImage = member.images![index]
+                nextVC.introductionImage = editImageContents[index]
+                nextVC.index = index
             }
-            present(nextVC, animated: true)
+            let navigationController = UINavigationController(rootViewController: nextVC)
+            present(navigationController, animated: true)
         }
     }
 }

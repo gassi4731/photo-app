@@ -10,6 +10,7 @@ import UIKit
 class EditIntroductionImageViewController: UIViewController {
     
     var introductionImage: MemberIntroductionImage!
+    var index: Int!
     var editContents: [SimpleEditContent] = []
     
     @IBOutlet var imageView: UIImageView!
@@ -30,11 +31,33 @@ class EditIntroductionImageViewController: UIViewController {
                 SimpleEditContent(title: "説明", placeholder: "例: 実家では犬を5匹飼ってました！", value: introductionImage.discription),
             ])
         } else {
+            introductionImage = MemberIntroductionImage(document: nil)
             editContents.append(contentsOf: [
                 SimpleEditContent(title: "タイトル", placeholder: "例: 犬", value: ""),
                 SimpleEditContent(title: "説明", placeholder: "例: 実家では犬を5匹飼ってました！", value: ""),
             ])
         }
+    }
+    
+    @IBAction func tappedCancelButton() {
+        dismiss(animated: true)
+    }
+    
+    @IBAction func tappedSaveButton() {
+        fetchTextField()
+        
+        let preNC = self.presentingViewController as! UINavigationController
+        let preVC = preNC.viewControllers[preNC.viewControllers.count - 1]  as! EditMemberViewController
+        preVC.editImage(introductionImage: introductionImage, index: index)
+        dismiss(animated: true)
+    }
+    
+    func fetchTextField() {
+        let titleTextCell = editTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! SimpleEditTableViewCell
+        let descriptionCell = editTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! SimpleEditTableViewCell
+        
+        introductionImage.title = titleTextCell.textField.text ?? ""
+        introductionImage.discription = descriptionCell.textField.text ?? ""
     }
 }
 

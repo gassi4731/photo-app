@@ -499,8 +499,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gFn-8a-31Y">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AdT-SD-pUe"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="sUP-Np-4kN"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AdT-SD-pUe">
+                            <connections>
+                                <action selector="tappedCancelButton" destination="Jdq-j4-GTL" id="lRC-N5-V1U"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="sUP-Np-4kN">
+                            <connections>
+                                <action selector="tappedSaveButton" destination="Jdq-j4-GTL" id="dCO-DW-4wP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="editTableView" destination="OeG-oQ-4lE" id="Z3X-dC-65s"/>

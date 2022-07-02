@@ -28,7 +28,7 @@ class EditImageTableViewCell: UITableViewCell {
             label.text = "写真追加"
             introImageView.image = UIImage(systemName: "plus")
         } else {
-            label.text = "写真\(index + 1)"
+            label.text = introImage!.title
             introImageView.image = UIImage(url: introImage!.imageUrl)
         }
     }
