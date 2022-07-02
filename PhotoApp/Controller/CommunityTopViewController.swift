@@ -11,7 +11,6 @@ import FirebaseFirestore
 class CommunityTopViewController: UIViewController {
     
     var members: [Member] = []
-    var groupId: String!
     
     @IBOutlet var memberCollectionView: UICollectionView!
     
@@ -19,9 +18,7 @@ class CommunityTopViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        title = "Sample Community"
-        
-        groupId = UserDefaults.standard.string(forKey: "groupId")
+        title = "PhotoApp"
         
         watchFirestore()
         
@@ -79,7 +76,7 @@ extension CommunityTopViewController: UICollectionViewDelegate, UICollectionView
 extension CommunityTopViewController {
     func watchFirestore() {
         let db = Firestore.firestore()
-        db.collection("group").document(groupId).collection("member")
+        db.collection("member")
             .addSnapshotListener { querySnapshot, error in
                 guard let documents = querySnapshot?.documents else {
                     print("Error fetching documents: \(error!)")

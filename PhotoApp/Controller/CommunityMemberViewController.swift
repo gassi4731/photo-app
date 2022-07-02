@@ -11,13 +11,11 @@ import FirebaseFirestore
 class CommunityMemberViewController: UIViewController {
     
     var member: Member!
-    var groupId: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        groupId = UserDefaults.standard.string(forKey: "groupId")
         fetchData()
     }
     
@@ -42,7 +40,7 @@ class CommunityMemberViewController: UIViewController {
 extension CommunityMemberViewController {
     func fetchData() {
         let db = Firestore.firestore()
-        db.collection("group").document(groupId).collection("member").document(member.id)
+        db.collection("member").document(member.id)
             .addSnapshotListener { documentSnapshot, error in
                 guard let document = documentSnapshot else {
                     print("Error fetching document: \(error!)")

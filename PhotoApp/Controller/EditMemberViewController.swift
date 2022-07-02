@@ -13,7 +13,6 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var isCreate: Bool!
     var member: Member = Member(document: nil)
-    var groupId: String!
     var editMemberContents: [SimpleEditContent] = []
     var editImageContents: [MemberIntroductionImage] = []
     var imagePicker: UIImagePickerController!
@@ -30,8 +29,6 @@ class EditMemberViewController: UIViewController, UITableViewDelegate, UITableVi
         } else {
             title = "編集"
         }
-        
-        groupId = UserDefaults.standard.string(forKey: "groupId")
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -180,7 +177,7 @@ extension EditMemberViewController {
     func addMember() {
         let db = Firestore.firestore()
         var ref: DocumentReference? = nil
-        ref = db.collection("group").document(groupId).collection("member")
+        ref = db.collection("member")
             .addDocument(data: member.getStringArray()) { err in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -192,7 +189,7 @@ extension EditMemberViewController {
     
     func updateMember() {
         let db = Firestore.firestore()
-        db.collection("group").document(groupId).collection("member").document(member.id)
+        db.collection("member").document(member.id)
             .setData(member.getStringArray()) { err in
                 if let err = err {
                     print("Error writing document: \(err)")
